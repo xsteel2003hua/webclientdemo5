@@ -41,7 +41,7 @@ def verify_installation():
 # 运行 cloudflared 隧道命令
 @st.cache_resource
 def run_cloudflared_tunnel():
-    token = "eyJhIjoiOTkzNjQxZjM4M2I0OGQxNGJjMmIzMGVlOGVlNDdlNzciLCJ0IjoiZDc4NTJhZDYtOWM0OC00MGNhLWE3NzItYzQyMjRmYjQ4ZWUxIiwicyI6Ik5EWTJNMk0yWVRZdFpURXpOUzAwT1RVM0xUZ3pOalV0TnpVMlpEUm1NVEV4T0RBNCJ9"  # 请替换为实际的token
+    token = "eyJhIjoiOTkzNjQxZjM4M2I0OGQxNGJjMmIzMGVlOGVlNDdlNzciLCJ0IjoiMWFmNTAxODItNzY2Yi00ZTNjLTk5NjQtZmJmYzdlYjQyMmIzIiwicyI6Ik1URmlPVE0yTW1ZdE0yTmtNaTAwWW1Sa0xUZ3lZelF0WldaaVlXTXhabUptWkRWaSJ9"  # 请替换为实际的token
     subprocess.Popen(f'nohup cloudflared tunnel --no-autoupdate run --token {token} > cloudflared.log 2>&1 &', shell=True)
 
 # 在独立线程中运行 cloudflared
