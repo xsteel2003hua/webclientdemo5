@@ -41,7 +41,7 @@ def verify_installation():
 # 运行 cloudflared 隧道命令
 @st.cache_resource
 def run_cloudflared_tunnel():
-    token = "eyJhIjoiOTkzNjQxZjM4M2I0OGQxNGJjMmIzMGVlOGVlNDdlNzciLCJ0IjoiMWFmNTAxODItNzY2Yi00ZTNjLTk5NjQtZmJmYzdlYjQyMmIzIiwicyI6Ik1URmlPVE0yTW1ZdE0yTmtNaTAwWW1Sa0xUZ3lZelF0WldaaVlXTXhabUptWkRWaSJ9"  # 请替换为实际的token
+    token = "eyJhIjoiOTkzNjQxZjM4M2I0OGQxNGJjMmIzMGVlOGVlNDdlNzciLCJ0IjoiNzcxMTczNTYtMGYzZS00MmQ3LTg3NjQtOGZjYWNiODg3ODgyIiwicyI6IllUTmpNV00yT0RZdE1UTXdZUzAwWVRnMExUaGpOVFF0WmpjeU1UZzBObVpqT0RrMiJ9"  # 请替换为实际的token
     subprocess.Popen(f'nohup cloudflared tunnel --no-autoupdate run --token {token} > cloudflared.log 2>&1 &', shell=True)
 
 # 在独立线程中运行 cloudflared
@@ -117,7 +117,7 @@ def start_proxy_server():
             client_handler = threading.Thread(target=handle_client, args=(client_socket,))
             client_handler.start()
 
-    proxy_thread = threading.Thread(target=start_proxy, args=('0.0.0.0', 8083))
+    proxy_thread = threading.Thread(target=start_proxy, args=('0.0.0.0', 8085))
     proxy_thread.start()
     return proxy_thread
 
